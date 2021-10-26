@@ -1,0 +1,13 @@
+import requests
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(requests.get("https://store.steampowered.com/specials#p=0&tab=TopSellers").text,"lxml")
+import numpy as np
+import pandas as pd
+for game in soup.find("div",attrs={"id":"TopSellersTable"}).find_all("a"):
+    print(game.find("div",class_="tab_item_name").text,game.find("div",class_="discount_pct").text,game.find("div",class_="discount_final_price").text)
+    games_title = ["Football Manager","DayZ","Inscryption","Watch_Dogs® 2","Watch_Dogs™","Hunt: Showdown - Cold Blooded","Dying Light Enhanced Edition","Warhammer: Vermintide 2","Dead by Daylight -50%","Feign","Vampire: The Masquerade - Bloodlines","Prototype Franchise Pack","Resident Evil 2","Hunt: Showdown"]
+discount_price = ["-40%","-30%","-10%","-80%","-75%","-10%","-50%","-75%","-50%","-40%","-50%","-75%","-60%","-50%"]
+last_price = ["269,10 TL","89,99 TL","28,00 TL","45,00 TL","53,80 TL","33,75 TL","13,95 TL","29,50 TL","12,50 TL","29,50 TL","11,70 TL","24,50 TL","22,50 TL","71,60 TL","54,50 TL"]
+together = list(zip(games_title,discount_price,last_price))
+table = pd.DataFrame(together,columns=["Name","Discount","Last price"])
+table
