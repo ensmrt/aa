@@ -1,0 +1,39 @@
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+soup = BeautifulSoup(requests.get("https://bigpara.hurriyet.com.tr/altin/").text,"lxml")
+a = soup.find("div",attrs={"class":"tBody"})
+b = a.find_all("ul")
+for gold in b:
+    print(gold.find("li",class_="cell010 tal").text)
+    print(gold.find("li",class_="cell009").text)
+     ALTIN (TL/GR)
+555,87
+ 22 Ayar Bilezik
+499,65
+ Altın (ONS)
+1.802,06
+ Altın ($/kg)
+57.744,00
+ Altın (Euro/kg)
+67.045,00
+ Cumhuriyet Altını
+3.517,00
+ Yarım Altın
+1.758,00
+ Çeyrek Altın
+879,00
+ Reşat Altını
+3.549,47
+ Kulplu Reşat Altını
+3.551,69
+ 22 Ayar Altın TL/Gr
+497,27
+ 18 Ayar Altın TL/Gr
+405,79
+ 14 Ayar Altın TL/Gr
+302,71
+ Kapalicarsi Ziynet 2.5
+8.817,79
+ Kapalicarsi Ziynet 5 li
+17.856,03
