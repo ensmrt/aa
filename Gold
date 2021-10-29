@@ -1,0 +1,12 @@
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+soup = BeautifulSoup(requests.get("https://bigpara.hurriyet.com.tr/altin/").text,"lxml")
+a = soup.find("div",attrs={"class":"tBody"})
+b = a.find_all("ul")
+
+for ul in b:
+    data = ul.find_all("li")
+    print(f"İsim: {data[0].find('a').text} Alış: {data[1].text} Satış: {data[2].text} Değişim: {data[3].text}")
+  
+    
