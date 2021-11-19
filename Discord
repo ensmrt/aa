@@ -1,6 +1,6 @@
 import discord
 
-TOKEN = 'Tokeni buraya yaz'
+TOKEN = 'TOKENi buraya gir'
 
 client = discord.Client()
 
@@ -11,14 +11,32 @@ async def on_message(message):
         return
 
     if message.content.startswith('!nasılsın'):
-        await message.channel.send('iyiyim gardaşım sen nasılsın')
+        await message.channel.send('iyiyim gardaşım sen nasılsın.')
+
+    if message.content == "!kok":
+        await message.channel.send("burdayım")
+
+    if message.content == "!şifre":
+        await message.channel.send("nuri abim olmasa götümü sikerler")
+
+    if message.content == "!melo":
+        await message.channel.send("o da çıkabilirse komutları dener inşallah")
+
+    if message.content == "!gülbal":
+        await message.channel.send("Adam geldi adam")
+
+    if message.content == "!nuri":
+        await message.channel.send("odtülü hocam")
+
+
+
 
 
 @client.event
 async def on_ready():
-    print('Logged in as')
+    print('Bot çalışıyor')
     print(client.user.name)
     print(client.user.id)
-    print('------')
+    print('KÖK HAZIRRR')
 
 client.run(TOKEN)
