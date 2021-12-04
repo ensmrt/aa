@@ -1,6 +1,6 @@
 import discord
 
-TOKEN = 'TOKENi buraya gir'
+TOKEN = 'TOKENİ BURAYA GİR'
 
 client = discord.Client()
 
@@ -26,7 +26,10 @@ async def on_message(message):
         await message.channel.send("Adam geldi adam")
 
     if message.content == "!nuri":
-        await message.channel.send("odtülü hocam")
+        await message.channel.send("hepiniz sigara içiyonuz da bu yeğenim bi farklı içiyor")
+
+    if message.content == "!bu hayatta ne olunmaz":
+        await message.channel.send("türk askeri olunmaz gardaş")
 
 
 
